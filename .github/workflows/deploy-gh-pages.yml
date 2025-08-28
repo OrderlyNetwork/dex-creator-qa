@@ -10,7 +10,7 @@ jobs:
   deploy:
     name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
-    if: github.ref_type == 'tag' && (github.event_name == 'workflow_dispatch' || contains(github.event.base_ref, 'refs/heads/main'))
+    if: github.ref_type == 'tag' || github.event_name == 'workflow_dispatch'
 
     steps:
       - name: Checkout code
